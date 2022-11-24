@@ -1,20 +1,17 @@
-
-
 Project structure
------------------
 
-README.md
-CelebA_HQ_facial_identity_dataset/
-    train/
-    test/
-    CelebA-HQ-to-CelebA-mapping.txt
-    list_identity_Celeba.txt
-models/
-history/
-Preprocessing.py 
-Facial_Detection.ipynb 
-    Jupyter notebook for facial detection, an initial 307 faces detection is trained
-utils.py
+Root
+├── README.md
+├── CelebA_HQ_facial_identity_dataset
+    ├── train
+    ├── test
+    ├── CelebA-HQ-to-CelebA-mapping.txt
+    ├── list_identity_Celeba.txt
+├── models
+├── history
+├── Preprocessing.py 
+├── Facial_Detection.ipynb: # An initial 307 faces detection is trained 
+├── utils.py
 
 
 Due to the file size limit of GitHub, the dataset is not included in this repository. Please download the dataset from the following link and put it in the same directory as the code: 
