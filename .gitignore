@@ -1,2 +1,4 @@
 CelebA_HQ_facial_identity_dataset/*
 __pycache__/*
+*.pdf
+*.pptx
