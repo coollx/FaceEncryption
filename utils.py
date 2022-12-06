@@ -27,9 +27,9 @@ def plot_history(train_history, model_name, filename = None):
     plt.figure(figsize = (8, 6))
     
     plt.plot(train_history['epoch'], train_history['train_loss'], label='train_loss', linestyle = '-', color = 'blue')
-    plt.plot(train_history['epoch'], train_history['train_acc'], label='train_acc', linestyle = '-', color = 'red')
+    plt.plot(train_history['epoch'], train_history['train_acc'] / 100, label='train_acc', linestyle = '-', color = 'red')
     plt.plot(train_history['epoch'], train_history['test_loss'], label='test_loss', linestyle = '--', color = 'violet')
-    plt.plot(train_history['epoch'], train_history['test_acc'], label='test_acc', linestyle = '--', color = 'green')
+    plt.plot(train_history['epoch'], train_history['test_acc'] / 100, label='test_acc', linestyle = '--', color = 'green')
 
     plt.legend()
     plt.title(model_name + ' Training History')
