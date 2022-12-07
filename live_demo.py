@@ -69,10 +69,12 @@ transforms_test = transforms.Compose([
 
 
 # Load the classification model
-model = models.resnet18(pretrained=True)
-num_features = model.fc.in_features
-model.fc = nn.Linear(num_features, 310) # multi-class classification (num_of_class == 310)
-model.load_state_dict(torch.load('models/model_310.pth', map_location=device))
+# model = models.resnet18(pretrained=True)
+# num_features = model.fc.in_features
+# model.fc = nn.Linear(num_features, 310) # multi-class classification (num_of_class == 310)
+# model.load_state_dict(torch.load('models/model_310.pth', map_location=device))
+
+model = torch.load('models/model_310_plus_max_pro_ultra.pt', map_location=device)
 
 # Load class names
 f = open('models/class_names_310.json' , 'r')
@@ -133,8 +135,8 @@ while True:
             _, preds = torch.max(outputs, 1)
             
             # pgd attack
-            #delta = pgd(model, image, preds, 0.1, 0.05, 1)
-            delta = pgd_target(model, image, torch.Tensor([64]).type(torch.LongTensor), 0.5, 0.1, 3)
+            delta = pgd(model, image, preds, 0.1, 0.05, 1)
+            #delta = pgd_target(model, image, torch.Tensor([64]).type(torch.LongTensor), 0.5, 0.1, 3)
             img_pgd = image + delta
             outputs = model(img_pgd)
             _, pgd_preds = torch.max(outputs, 1)
