@@ -1,25 +1,58 @@
-
 import cv2 as cv
 import numpy as np
 import mediapipe as mp
 
-import torchvision
-from torchvision import datasets, models, transforms
+from torchvision import models, transforms
 
 import numpy as np
 import matplotlib.pyplot as plt
 
-import time
-import os
 
 import pandas as pd
 from utils import * 
+import time 
 
 import json
 
 from PIL import Image
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu") # device object
+
+def pgd(model, X, y, epsilon, alpha, num_iter):
+
+    delta = torch.rand_like(X, requires_grad=True)
+    #set delta to be in the range of perturbation
+    delta.data = delta.data * 2 * epsilon - epsilon
+
+    for t in range(num_iter):
+        
+        yd = model(X + delta)
+        loss = nn.CrossEntropyLoss()(yd, y)
+        loss.backward()
+        delta.data = (delta + alpha*delta.grad.detach().sign()).clamp(-epsilon,epsilon)
+        delta.grad.zero_()
+
+        
+    return delta.detach()
+
+def pgd_target(model, X, y_target, epsilon, alpha, num_iter):
+
+    delta = torch.rand_like(X, requires_grad=True)
+    #set delta to be in the range of perturbation
+    delta.data = delta.data * 2 * epsilon - epsilon
+
+    #get fake labels as second highest probability
+    #y_fake = torch.argsort(model(X), dim=1)[:, -2]
+
+    for t in range(num_iter):
+
+        yd = model(X + delta)
+        loss = nn.CrossEntropyLoss()(yd, y_target)
+        loss.backward()
+        delta.data = (delta - alpha*delta.grad.detach().sign()).clamp(-epsilon,epsilon)
+        delta.grad.zero_()
+        
+    return delta.detach()
 
 
 # initialize mediapipe
@@ -64,10 +97,8 @@ while True:
     
     className = ''
 
-    
     # post process the result
     if result.detections:
-
         for detection in result.detections:
             #get the bounding box
             bbox = detection.location_data.relative_bounding_box
@@ -81,53 +112,60 @@ while True:
             size = int(max(bbox.width * frame.shape[1], bbox.height * frame.shape[0])*1)
             size = int(size/2) + 10
             image = frame[center_y-size-5:center_y+size-5, center_x-size:center_x+size]
+            face_shape = image.shape
         
-        if image.shape[0] == 0 or image.shape[1] == 0:
-            continue
+            if image.shape[0] == 0 or image.shape[1] == 0:
+                continue
+            
+            #print(type(image))
+            
+            # crop the face and classify it
+            image = Image.fromarray(image)
+            image = transforms_test(image)
+            image = image.unsqueeze(0)
+            
+            # plt.imshow(image[0].permute(1,2,0))
+            # plt.show()
 
-        
-        image = Image.fromarray(image)
-        
-        # # show the image
-        # cv.imshow('image', image)
-        # cv.waitKey(0)
-        # cv.destroyAllWindows()
+            image = image.to(device)
+            model.eval()
+            outputs = model(image)
+            _, preds = torch.max(outputs, 1)
+            
+            # pgd attack
+            #delta = pgd(model, image, preds, 0.1, 0.05, 1)
+            delta = pgd_target(model, image, torch.Tensor([64]).type(torch.LongTensor), 0.5, 0.1, 3)
+            img_pgd = image + delta
+            outputs = model(img_pgd)
+            _, pgd_preds = torch.max(outputs, 1)
+            
+            className = classNames[preds.item()]
+            pgd_className = classNames[pgd_preds.item()]
+            
+            
+            # Display the predicted gesture and the bounding box
+            cv.rectangle(frame, (center_x-size, center_y-size-5), (center_x+size, center_y+size-5), (0, 255, 0), 2)
+            cv.putText(frame, className, (center_x-size, center_y-size-10), cv.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+            cv.putText(frame, pgd_className, (center_x-size, center_y-size-35), cv.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2)
+            
+            # #replace the face with the encrypted face
+            img_pgd = img_pgd[0].permute(1,2,0).numpy()
+            mean = np.array([0.485, 0.456, 0.406])
+            std = np.array([0.229, 0.224, 0.225])
+            img_pgd = std * img_pgd + mean
+            img_pgd *= 255.0
+            #rescale the image to the range of [0, 255]
+            img_pgd = np.clip(img_pgd, 0, 255)
+            img_pgd = img_pgd.astype(np.uint8)
+            # resize the encrypted face to the original size
+            img_pgd = cv.resize(img_pgd, (face_shape[1], face_shape[0]))
 
-        # convert to tensor
-        image = transforms_test(image) 
-        
-
-        # normalize the image
-        #image = transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])(image)
-        image = image.unsqueeze(0)
-        
-        # # show the image
-        # img = image.squeeze(0)
-        # img = img.numpy()
-        # img = np.transpose(img, (1, 2, 0))
-        # img = Image.fromarray((img*255).astype(np.uint8))
-
-        # #display image
-        # img.show()
-
-        
-        
-        # predict the class
-        with torch.no_grad():
-            output = model(image.to(device))
-            _, predicted = torch.max(output, 1)
-            className = classNames[predicted.item()]
-    
-        frame = cv.cvtColor(frame, cv.COLOR_RGB2BGR)
-        # Display the predicted gesture and the bounding box
-        cv.rectangle(frame, (center_x-size, center_y-size-5), (center_x+size, center_y+size-5), (0, 255, 0), 2)
-        cv.putText(frame, className, (center_x-size, center_y-size-10), cv.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
-
+            #print(frame[center_y-size-5:center_y+size-5, center_x-size:center_x+size].shape, img_pgd.shape)
+            frame[center_y-size-5:center_y+size-5, center_x-size:center_x+size] = img_pgd
     else:
-        frame = cv.cvtColor(frame, cv.COLOR_RGB2BGR)
         cv.putText(frame, 'No face detected', (10, 30), cv.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
     
-    
+    frame = cv.cvtColor(frame, cv.COLOR_RGB2BGR)
     cv.imshow("Face Encryption Demo", frame)
     # out.write(frame)
     if cv.waitKey(1) & 0xFF == ord('q'):
