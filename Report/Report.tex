@@ -1,0 +1,106 @@
+\documentclass[11pt, oneside, a4paper]{article}
+
+\usepackage{pdfpages}
+\usepackage{fontspec}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage[colorlinks=true]{hyperref}
+\usepackage[font={footnotesize,it}]{caption}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{apacite}
+\usepackage{array}
+\usepackage{colortbl}
+\usepackage{fancyhdr}
+\usepackage[hmargin=0.8in,vmargin=1in]{geometry}
+
+\newfontfamily\headingfont{Titillium Web SemiBold}
+\newfontfamily\subheadingfont{Titillium Web}
+\newfontfamily\authorfont{Roboto Slab}
+
+\titleformat{\section}{\headingfont{}\LARGE\color{cyan}}{\thesection}{1em}{}
+\titleformat{\subsection}{\subheadingfont{}\Large}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\subheadingfont{}\large\itshape}{\thesubsubsection}{1em}{}
+
+\setmainfont{Cambria}
+
+\graphicspath{{./Figures/}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\leftmark}
+\fancyhead[R]{CSI4106}
+\fancyfoot[C]{\thepage}
+
+\setlength{\parindent}{0pt}
+
+\begin{document}
+\begin{titlepage}
+    \begin{center}
+        \vspace*{5cm}
+ 
+        {\LARGE\headingfont{Face Encryption}}
+
+        \vspace{2cm}
+        SDS3386 Data Science Lab
+        
+        \vspace{0.5cm}
+        Fall 2022
+
+
+        \vspace{1.5cm}
+        \textbf{Team TensorOverflow}
+
+        \vspace{1.5cm}
+        \begin{tabular}{rl}
+            Xiang Li & 300056427 \\
+            Jiaxun Gao & 300063462 \\
+            Bowen Zeng & 300115382  \\
+        \end{tabular}
+ 
+        \vfill
+             
+        Course Coordinator: Tanya Schmah\\
+        
+        \vspace{0.5cm}
+        November 30, 2022
+
+        \vspace{1cm}
+        University of Ottawa
+
+        \vspace{0.8cm}
+      
+        \includegraphics[width=0.2\textwidth]{uOttawa.png}
+             
+
+        \date{}
+             
+    \end{center}
+ \end{titlepage}
+
+{\hypersetup{hidelinks}
+    \tableofcontents
+    \newpage
+    %\listoffigures
+    %\newpage
+    %\listoftables
+    %\newpage
+}
+
+    \hypersetup{
+        linkcolor = blue,
+        bookmarksnumbered=true
+    }
+
+    \input{Section1.tex}
+    \input{Section2.tex}
+    \input{Section3.tex}
+    \newpage
+
+    \bibliographystyle{apacite} % We choose the "plain" reference style
+    \bibliography{references}
+
+
+\end{document}

@@ -1,0 +1,124 @@
+\begin{thebibliography}{}
+
+\bibitem [\protect \citeauthoryear {%
+Esteve%
+}{%
+Esteve%
+}{%
+{\protect \APACyear {2017}}%
+}]{%
+10.1093/idpl/ipw026}
+\APACinsertmetastar {%
+10.1093/idpl/ipw026}%
+\begin{APACrefauthors}%
+Esteve, A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2017}{03}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{The business of personal data: Google, Facebook, and
+  privacy issues in the EU and the USA}} {{The business of personal data:
+  Google, Facebook, and privacy issues in the EU and the USA}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{International Data Privacy Law}{7}{1}{36-47}.
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.1093/idpl/ipw026} \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1093/idpl/ipw026} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Goodfellow%
+}{%
+Goodfellow%
+}{%
+{\protect \APACyear {2020}}%
+}]{%
+adversarial_2020}
+\APACinsertmetastar {%
+adversarial_2020}%
+\begin{APACrefauthors}%
+Goodfellow, I.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2020}{Oct}{}.
+\newblock
+\APACrefbtitle {Attacking machine learning with adversarial examples.}
+  {Attacking machine learning with adversarial examples.}
+\newblock
+\APACaddressPublisher{}{OpenAI}.
+\newblock
+\begin{APACrefURL} \url{https://openai.com/blog/adversarial-example-research/}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Ramzan%
+\ \protect \BOthers {.}}{%
+Ramzan%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2019}}%
+}]{%
+ResNet-18}
+\APACinsertmetastar {%
+ResNet-18}%
+\begin{APACrefauthors}%
+Ramzan, F.%
+, Khan, M\BPBI U.%
+, Rehmat, A.%
+, Iqbal, S.%
+, Saba, T.%
+, Rehman, A.%
+\BCBL {}\ \BBA {} Mehmood, Z.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2019}{12}{}.
+\newblock
+{\BBOQ}\APACrefatitle {A Deep Learning Approach for Automated Diagnosis and
+  Multi-Class Classification of Alzheimer’s Disease Stages Using
+  Resting-State fMRI and Residual Neural Networks} {A deep learning approach
+  for automated diagnosis and multi-class classification of alzheimer’s
+  disease stages using resting-state fmri and residual neural networks}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Medical Systems}{44}{}{}.
+\newblock
+\begin{APACrefDOI} \doi{10.1007/s10916-019-1475-2} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Smith%
+, Szongott%
+, Henne%
+\BCBL {}\ \BBA {} von Voigt%
+}{%
+Smith%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2012}}%
+}]{%
+6227909}
+\APACinsertmetastar {%
+6227909}%
+\begin{APACrefauthors}%
+Smith, M.%
+, Szongott, C.%
+, Henne, B.%
+\BCBL {}\ \BBA {} von Voigt, G.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2012}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Big data privacy issues in public social media} {Big
+  data privacy issues in public social media}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {2012 6th IEEE International Conference on Digital
+  Ecosystems and Technologies (DEST)} {2012 6th ieee international conference
+  on digital ecosystems and technologies (dest)}\ (\BPG~1-6).
+\newblock
+\begin{APACrefDOI} \doi{10.1109/DEST.2012.6227909} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\end{thebibliography}
