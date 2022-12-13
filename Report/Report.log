@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022/Arch Linux) (preloaded format=xelatex 2022.11.30)  11 DEC 2022 18:52
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022/Arch Linux) (preloaded format=xelatex 2022.11.30)  13 DEC 2022 13:49
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -627,7 +627,7 @@ File: ./Figures//adversarial_attack.png Graphic file (type bmp)
 <./Figures//adversarial_attack.png>
 File: ./Figures//ResNet18.png Graphic file (type bmp)
 <./Figures//ResNet18.png>
-)
+) (./Section4.tex
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -635,7 +635,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[3] (./Report.bbl)
+[3])
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -643,17 +643,25 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[4] (./Report.aux)
+[4] (./Report.bbl)
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[5] (./Report.aux)
 Package rerunfilecheck Info: File `Report.out' has not changed.
-(rerunfilecheck)             Checksum: 00AD82A4B2A206C381A9327C1AC93969;1075.
+(rerunfilecheck)             Checksum: 1B027ADAD43E108AEE5A8458E67BF972;1361.
  ) 
 Here is how much of TeX's memory you used:
- 14893 strings out of 476156
- 290510 string characters out of 5814962
- 654299 words of memory out of 5000000
- 35415 multiletter control sequences out of 15000+600000
+ 14900 strings out of 476156
+ 290603 string characters out of 5814962
+ 654668 words of memory out of 5000000
+ 35419 multiletter control sequences out of 15000+600000
  472750 words of font info for 87 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 72i,11n,85p,677b,402s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 72i,12n,85p,677b,414s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Report.pdf (5 pages).
+Output written on Report.pdf (6 pages).
