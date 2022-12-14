@@ -10,7 +10,7 @@ This process is done in \verb|Data_generation.ipynb.ipynb|.
 
 \subsection{Associate id with name}
 
-After downloading the CelebA dataset from their website, we utilise CelebA-HQ-to-CelebA-mapping.txt to generate a map \verb|hq_A_mapping| from an id to the image file name, such as \verb|5: 000615.jpg|.
+After downloading the CelebA dataset from the official website, we utilise CelebA-HQ-to-CelebA-mapping.txt to generate a map \verb|hq_A_mapping| from an id to the image file name, such as \verb|5: 000615.jpg|.
 Then, we use list\_identity\_celeba.txt to generate the second map \verb|id_name_mapping| from a file name to its corresponding identity's name, for instance: \verb|000615.jpg: Martha Hunt|.
 
 The benefit of this process is that we can now use the id to determine an identity's name. By example, we may use the following code: \verb|id_name_mapping[hq_A_mapping['5']]| to determine the name of the individual with id = 5.

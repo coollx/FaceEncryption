@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022/Arch Linux) (preloaded format=xelatex 2022.11.30)  13 DEC 2022 20:05
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022/Arch Linux) (preloaded format=xelatex 2022.11.30)  13 DEC 2022 20:42
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -635,7 +635,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[3]) (./Section5.tex)
+[3]
+Overfull \hbox (12.86482pt too wide) in paragraph at lines 13--15
+\TU/Cambria(0)/m/n/10.95 After downloading the CelebA dataset from the official website, we utilise CelebA-HQ-to-CelebA-mapping.txt
+ []
+
+) (./Section5.tex)
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
