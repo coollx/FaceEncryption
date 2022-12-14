@@ -6,5 +6,8 @@
 \contentsline {subsection}{\numberline {3.1}Adversarial Attacks}{3}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Backbone Model: ResNet-18}{3}{subsection.3.2}%
 \contentsline {section}{\numberline {4}Data Wrangling}{4}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Data Collection}{4}{subsection.4.1}%
-\contentsline {section}{References}{5}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.1}Faces extraction from recorded video}{4}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Associate id with name}{4}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Transforming the dataset}{4}{subsection.4.3}%
+\contentsline {section}{\numberline {5}Modelling}{4}{section.5}%
+\contentsline {section}{References}{5}{section.5}%

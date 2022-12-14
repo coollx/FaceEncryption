@@ -1,5 +1,24 @@
 \section{Data Wrangling}
 
-\subsection{Data Collection}
 
-The CelebA dataset (introduced in section \ref{sec:CelebA})
+\subsection{Faces extraction from recorded video}
+
+After capturing three videos, OpenCV2 is used to sample 40 frames from each video. The faces are then rotated 180 degrees to accommodate package mediapipe's face detection model. Then, we crop the faces from the frames using the centre of the bounding box's coordinates. The faces are then saved in a folder named \verb|private_dataset| and added to \verb|CelebA_HQ_facial_identity_dataset|.
+
+This process is done in \verb|Data_generation.ipynb.ipynb|.
+
+
+\subsection{Associate id with name}
+
+After downloading the CelebA dataset from their website, we utilise CelebA-HQ-to-CelebA-mapping.txt to generate a map \verb|hq_A_mapping| from an id to the image file name, such as \verb|5: 000615.jpg|.
+Then, we use list\_identity\_celeba.txt to generate the second map \verb|id_name_mapping| from a file name to its corresponding identity's name, for instance: \verb|000615.jpg: Martha Hunt|.
+
+The benefit of this process is that we can now use the id to determine an identity's name. By example, we may use the following code: \verb|id_name_mapping[hq_A_mapping['5']]| to determine the name of the individual with id = 5.
+
+This process is done in \verb|Preprocessing.ipynb|.
+
+\subsection{Transforming the dataset}
+
+We resized the images to 224x224 because their original size was too large for our model, which could cause performance issues. After that, we augment the tensor by giving it a random horizontal flip as part of the transformation.
+
+This process is a part of \verb|simple_model.ipynb|.
