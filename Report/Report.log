@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022/Arch Linux) (preloaded format=xelatex 2022.11.30)  13 DEC 2022 20:42
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022/Arch Linux) (preloaded format=xelatex 2022.11.30)  14 DEC 2022 23:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -640,7 +640,7 @@ Overfull \hbox (12.86482pt too wide) in paragraph at lines 13--15
 \TU/Cambria(0)/m/n/10.95 After downloading the CelebA dataset from the official website, we utilise CelebA-HQ-to-CelebA-mapping.txt
  []
 
-) (./Section5.tex)
+) (./Section5.tex
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -648,7 +648,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[4] (./Report.bbl)
+[4])
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -656,17 +656,25 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[5] (./Report.aux)
+[5] (./Report.bbl)
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[6] (./Report.aux)
 Package rerunfilecheck Info: File `Report.out' has not changed.
-(rerunfilecheck)             Checksum: 6801C088DFAAAFE6CA9D103F3CAE450A;1979.
+(rerunfilecheck)             Checksum: D5488CEBF75328A2EC877AAC3E5DD3AD;2665.
  ) 
 Here is how much of TeX's memory you used:
- 14905 strings out of 476156
- 290673 string characters out of 5814962
- 655323 words of memory out of 5000000
- 35421 multiletter control sequences out of 15000+600000
- 472750 words of font info for 87 fonts, out of 8000000 for 9000
+ 14917 strings out of 476156
+ 290971 string characters out of 5814962
+ 658206 words of memory out of 5000000
+ 35431 multiletter control sequences out of 15000+600000
+ 472766 words of font info for 89 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  72i,12n,85p,677b,414s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Report.pdf (6 pages).
+Output written on Report.pdf (7 pages).

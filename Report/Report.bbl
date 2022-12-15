@@ -55,6 +55,38 @@ Goodfellow, I.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Madry%
+, Makelov%
+, Schmidt%
+, Tsipras%
+\BCBL {}\ \BBA {} Vladu%
+}{%
+Madry%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2017}}%
+}]{%
+madry2017towards}
+\APACinsertmetastar {%
+madry2017towards}%
+\begin{APACrefauthors}%
+Madry, A.%
+, Makelov, A.%
+, Schmidt, L.%
+, Tsipras, D.%
+\BCBL {}\ \BBA {} Vladu, A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2017}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Towards deep learning models resistant to adversarial
+  attacks} {Towards deep learning models resistant to adversarial
+  attacks}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{arXiv preprint arXiv:1706.06083}{}{}{}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Ramzan%
 \ \protect \BOthers {.}}{%
 Ramzan%
