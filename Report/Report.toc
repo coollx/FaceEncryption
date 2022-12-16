@@ -18,3 +18,4 @@
 \contentsline {subsection}{\numberline {6.1}Resnet-18 Performance}{5}{subsection.6.1}%
 \contentsline {subsection}{\numberline {6.2}Noise Performance}{6}{subsection.6.2}%
 \contentsline {subsection}{\numberline {6.3}Real-Time Interface}{6}{subsection.6.3}%
+\contentsline {section}{References}{7}{subsection.6.3}%

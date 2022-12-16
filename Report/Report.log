@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022/Arch Linux) (preloaded format=xelatex 2022.11.30)  16 DEC 2022 13:26
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022/Arch Linux) (preloaded format=xelatex 2022.11.30)  16 DEC 2022 13:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -654,14 +654,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [1]
 Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 98.
- (./Section1.tex
-
-LaTeX Warning: Citation `6227909' undefined on input line 3.
-
-
-LaTeX Warning: Citation `10.1093/idpl/ipw026' undefined on input line 3.
-
-) (./Section2.tex
+ (./Section1.tex) (./Section2.tex
 Overfull \hbox (1.40794pt too wide) in paragraph at lines 5--6
 \TU/Cambria(0)/m/n/10.95 tribute annotations. The images in this dataset cover large pose variations and background clutter. CelebA
  []
@@ -684,13 +677,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [2]
 File: ./Figures//adversarial_attack.png Graphic file (type bmp)
 <./Figures//adversarial_attack.png>
-
-
-LaTeX Warning: Citation `adversarial_2020' undefined on input line 19.
-
-
-LaTeX Warning: Citation `ResNet-18' undefined on input line 26.
-
 File: ./Figures//ResNet18.png Graphic file (type bmp)
 <./Figures//ResNet18.png>
 ) (./Section4.tex
@@ -707,9 +693,6 @@ Overfull \hbox (12.86482pt too wide) in paragraph at lines 13--15
  []
 
 ) (./Section5.tex
-
-LaTeX Warning: Citation `madry2017towards' undefined on input line 10.
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -745,22 +728,25 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[6]
-No file Report.bbl.
-(./Report.aux)
+[6] (./Report.bbl)
 
-LaTeX Warning: There were undefined references.
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
+[7] (./Report.aux)
 Package rerunfilecheck Info: File `Report.out' has not changed.
-(rerunfilecheck)             Checksum: F409CF1CE54185338AB3D266F5DC1095;3349.
+(rerunfilecheck)             Checksum: 551239295BE0D37102723CBB4736363E;3448.
  ) 
 Here is how much of TeX's memory you used:
- 15726 strings out of 476156
- 302907 string characters out of 5814962
+ 15736 strings out of 476156
+ 303123 string characters out of 5814962
  669427 words of memory out of 5000000
- 36216 multiletter control sequences out of 15000+600000
- 473440 words of font info for 92 fonts, out of 8000000 for 9000
+ 36223 multiletter control sequences out of 15000+600000
+ 473448 words of font info for 93 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 72i,11n,85p,677b,559s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 72i,12n,85p,677b,559s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Report.pdf (7 pages).
+Output written on Report.pdf (8 pages).
