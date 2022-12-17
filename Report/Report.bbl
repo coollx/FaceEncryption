@@ -55,6 +55,32 @@ Goodfellow, I.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Knagg%
+}{%
+Knagg%
+}{%
+{\protect \APACyear {2019}}%
+}]{%
+knagg_2019}
+\APACinsertmetastar {%
+knagg_2019}%
+\begin{APACrefauthors}%
+Knagg, O.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2019}{Jan}{}.
+\newblock
+\APACrefbtitle {Know your enemy.} {Know your enemy.}
+\newblock
+\APACaddressPublisher{}{Towards Data Science}.
+\newblock
+\begin{APACrefURL}
+  \url{https://towardsdatascience.com/know-your-enemy-7f7c5038bdf3}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Madry%
 , Makelov%
 , Schmidt%

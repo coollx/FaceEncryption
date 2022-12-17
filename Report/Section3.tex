@@ -1,5 +1,21 @@
 \section{Methodology}
 
+\subsection{Backbone Model: ResNet-18}
+
+% explain what is ResNet-18
+
+ResNet-18 is a convolutional neural network (CNN) that is used as a backbone model in this project. The architecture can be illustrated as figure \ref{fig:resnet18} \cite{ResNet-18}.
+It is a 18-layer deep neural network that is trained on the ImageNet dataset. The ImageNet dataset is a large dataset that contains 1.2 million images with 1000 classes. The ResNet-18 model is trained on the ImageNet dataset to classify the images into 1000 classes.
+
+% insert the ResNet-18 picture
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=1\textwidth]{ResNet18.png}
+\caption{ResNet-18 Architecture}
+\label{fig:resnet18}
+\end{figure}
+
 \subsection{Adversarial Attacks}
 
 % explain what is adversarial attacking
@@ -18,20 +34,6 @@ Adversarial examples are hard to defend against because it is difficult to const
 
 Another reason is they require machine learning models to produce good outputs for every possible input. Most of the time, machine learning models work very well but only work on a very small amount of all the many possible inputs they might encounter. \cite{adversarial_2020}
 
+\subsection{PGD Attack}
 
-\subsection{Backbone Model: ResNet-18}
-
-% explain what is ResNet-18
-
-ResNet-18 is a convolutional neural network (CNN) that is used as a backbone model in this project. The architecture can be illustrated as figure \ref{fig:resnet18} \cite{ResNet-18}.
-It is a 18-layer deep neural network that is trained on the ImageNet dataset. The ImageNet dataset is a large dataset that contains 1.2 million images with 1000 classes. The ResNet-18 model is trained on the ImageNet dataset to classify the images into 1000 classes.
-
-% insert the ResNet-18 picture
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=1\textwidth]{ResNet18.png}
-\caption{ResNet-18 Architecture}
-\label{fig:resnet18}
-\end{figure}
-
+The PGD attack is a white-box attack which means the attacker has access to the model gradients i.e. it knows every weight in ResNet-18 in our project. This model gives the attacker much more power than black box attacks as they can specifically craft their attack to fool the face recognition model without having to rely on transfer attacks that often result in human-visible perturbations. PGD can be considered the most “complete” white-box adversary as it lifts any constraints on the amount of time and effort the attacker can put into finding the best attack. \cite{knagg_2019}

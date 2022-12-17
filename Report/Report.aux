@@ -19,6 +19,7 @@
 \HyPL@Entry{1<</S/D>>}
 \citation{6227909}
 \citation{10.1093/idpl/ipw026}
+\citation{ResNet-18}
 \@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{2}{section.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {2}Dataset}{2}{section.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1}CelebA}{2}{subsection.2.1}\protected@file@percent }
@@ -28,15 +29,16 @@
 \newlabel{fig:CelebA}{{1}{2}{CelebA dataset\relax }{figure.caption.1}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Private Dataset}{2}{subsection.2.2}\protected@file@percent }
 \citation{adversarial_2020}
-\citation{ResNet-18}
+\citation{knagg_2019}
 \@writefile{toc}{\contentsline {section}{\numberline {3}Methodology}{3}{section.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Adversarial Attacks}{3}{subsection.3.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces An adversarial input, overlaid on a typical image, can cause a classifier to miscategorize a panda as a gibbon.\relax }}{3}{figure.caption.2}\protected@file@percent }
-\newlabel{fig:adversarial_attack}{{2}{3}{An adversarial input, overlaid on a typical image, can cause a classifier to miscategorize a panda as a gibbon.\relax }{figure.caption.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Backbone Model: ResNet-18}{3}{subsection.3.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces ResNet-18 Architecture\relax }}{3}{figure.caption.3}\protected@file@percent }
-\newlabel{fig:resnet18}{{3}{3}{ResNet-18 Architecture\relax }{figure.caption.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Backbone Model: ResNet-18}{3}{subsection.3.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces ResNet-18 Architecture\relax }}{3}{figure.caption.2}\protected@file@percent }
+\newlabel{fig:resnet18}{{2}{3}{ResNet-18 Architecture\relax }{figure.caption.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Adversarial Attacks}{3}{subsection.3.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces An adversarial input, overlaid on a typical image, can cause a classifier to miscategorize a panda as a gibbon.\relax }}{3}{figure.caption.3}\protected@file@percent }
+\newlabel{fig:adversarial_attack}{{3}{3}{An adversarial input, overlaid on a typical image, can cause a classifier to miscategorize a panda as a gibbon.\relax }{figure.caption.3}{}}
 \citation{madry2017towards}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}PGD Attack}{4}{subsection.3.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {4}Data Wrangling}{4}{section.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Faces extraction from recorded video}{4}{subsection.4.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Associate id with name}{4}{subsection.4.2}\protected@file@percent }
@@ -44,27 +46,32 @@
 \@writefile{toc}{\contentsline {section}{\numberline {5}Modelling}{4}{section.5}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Face Recognition}{4}{subsection.5.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.2}PGD Attack}{4}{subsection.5.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.1}Non-targeted Attack}{4}{subsubsection.5.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.1}Non-targeted Attack}{5}{subsubsection.5.2.1}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Example of a non-targeted attack\relax }}{5}{figure.caption.4}\protected@file@percent }
 \newlabel{fig:pdf_attack_example}{{4}{5}{Example of a non-targeted attack\relax }{figure.caption.4}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.2}Targeted Attack}{5}{subsubsection.5.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6}Visualisation and Real-Time Interface}{5}{section.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Resnet-18 Performance}{5}{subsection.6.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}Visualisation and Real-Time Application}{6}{section.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Resnet-18 Performance}{6}{subsection.6.1}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Resnet18 performance\relax }}{6}{figure.caption.5}\protected@file@percent }
 \newlabel{fig:resnet18_performance}{{5}{6}{Resnet18 performance\relax }{figure.caption.5}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Noise Performance}{6}{subsection.6.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Real-Time Interface}{6}{subsection.6.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}PGD Attack Real-Time Application}{6}{subsection.6.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7}Discussion and Conclusion}{6}{section.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {8}Ethical Considerations}{6}{section.8}\protected@file@percent }
 \bibstyle{apacite}
 \bibdata{references}
 \bibcite{10.1093/idpl/ipw026}{\citeauthoryear {Esteve}{Esteve}{{\APACyear {2017}}}}
 \APACbibcite{10.1093/idpl/ipw026}{\citeauthoryear {Esteve}{Esteve}{{\APACyear {2017}}}}
 \bibcite{adversarial_2020}{\citeauthoryear {Goodfellow}{Goodfellow}{{\APACyear {2020}}}}
 \APACbibcite{adversarial_2020}{\citeauthoryear {Goodfellow}{Goodfellow}{{\APACyear {2020}}}}
+\bibcite{knagg_2019}{\citeauthoryear {Knagg}{Knagg}{{\APACyear {2019}}}}
+\APACbibcite{knagg_2019}{\citeauthoryear {Knagg}{Knagg}{{\APACyear {2019}}}}
 \bibcite{madry2017towards}{\citeauthoryear {Madry, Makelov, Schmidt, Tsipras,{}\ \BBA{} Vladu}{Madry\ \BOthers {.}}{{\APACyear {2017}}}}
 \APACbibcite{madry2017towards}{\citeauthoryear {Madry, Makelov, Schmidt, Tsipras,{}\ \BBA{} Vladu}{Madry\ \BOthers {.}}{{\APACyear {2017}}}}
 \bibcite{ResNet-18}{\citeauthoryear {Ramzan\ \BOthers {.}}{Ramzan\ \BOthers {.}}{{\APACyear {2019}}}}
 \APACbibcite{ResNet-18}{\citeauthoryear {Ramzan\ \BOthers {.}}{Ramzan\ \BOthers {.}}{{\APACyear {2019}}}}
 \bibcite{6227909}{\citeauthoryear {Smith, Szongott, Henne,{}\ \BBA{} von Voigt}{Smith\ \BOthers {.}}{{\APACyear {2012}}}}
 \APACbibcite{6227909}{\citeauthoryear {Smith, Szongott, Henne,{}\ \BBA{} von Voigt}{Smith\ \BOthers {.}}{{\APACyear {2012}}}}
-\@writefile{toc}{\contentsline {section}{References}{7}{subsection.6.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {9}Future Work}{7}{section.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {A}Contributions}{7}{appendix.A}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{References}{7}{appendix.A}\protected@file@percent }
 \gdef \@abspage@last{8}

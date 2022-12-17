@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022/Arch Linux) (preloaded format=xelatex 2022.11.30)  16 DEC 2022 13:30
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022/Arch Linux) (preloaded format=xelatex 2022.11.30)  17 DEC 2022 11:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -675,10 +675,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [2]
-File: ./Figures//adversarial_attack.png Graphic file (type bmp)
-<./Figures//adversarial_attack.png>
 File: ./Figures//ResNet18.png Graphic file (type bmp)
 <./Figures//ResNet18.png>
+File: ./Figures//adversarial_attack.png Graphic file (type bmp)
+<./Figures//adversarial_attack.png>
 ) (./Section4.tex
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -710,7 +710,24 @@ File: ./Figures//Resnet18_performance.png Graphic file (type bmp)
 <./Figures//Resnet18_performance.png>
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[5]) (./Section7.tex
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[6]) (./Report.bbl
+Underfull \hbox (badness 1072) in paragraph at lines 68--82
+[]\TU/Cambria(0)/m/n/10.95 Knagg, O.  (2019, Jan).  \TU/Cambria(0)/m/it/10.95 Know your enemy.  \TU/Cambria(0)/m/n/10.95 Towards Data Science.  Retrieved from [][]$[][][][][] [][][]
+ []
 
 )
 
@@ -720,33 +737,17 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[5]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[6] (./Report.bbl)
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
 [7] (./Report.aux)
 Package rerunfilecheck Info: File `Report.out' has not changed.
-(rerunfilecheck)             Checksum: 551239295BE0D37102723CBB4736363E;3448.
+(rerunfilecheck)             Checksum: 3D8834D5C1B86A2A2036FBF303C9B8E1;4086.
  ) 
 Here is how much of TeX's memory you used:
- 15736 strings out of 476156
- 303123 string characters out of 5814962
- 669427 words of memory out of 5000000
- 36223 multiletter control sequences out of 15000+600000
+ 15744 strings out of 476156
+ 303232 string characters out of 5814962
+ 671427 words of memory out of 5000000
+ 36228 multiletter control sequences out of 15000+600000
  473448 words of font info for 93 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 72i,12n,85p,677b,559s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 72i,11n,85p,747b,559s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on Report.pdf (8 pages).
