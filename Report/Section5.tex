@@ -1,11 +1,9 @@
-\section{Modelling}
-
-\subsection{Face Recognition}
+\subsection{Face Recognition System Implementation}
 
 Before we can achieve our objective, we need a face recognition system to use as an attacking target. To recognise faces, we employ a pre-trained ResNet-18 model in pytorch.
 In the neuron network, we use cross entropy loss as the loss function and stochastic gradient descent (SGD), a simple yet highly effective method for fitting linear classifiers and regressors under convex loss functions, as the optimizer. The model is trained for 10 iterations on the CelebA-HQ dataset.
 
-\subsection{PGD Attack}
+\subsection{PGD Attack Modelling}
 
 To generate adversarial examples, we use the PGD attack \cite{madry2017towards}. In this project, we use the gradient of the loss function to generate adversarial examples. The attack is iterative and uses a step size to determine the size of the perturbation. The attack is also constrained by a maximum perturbation size.
 

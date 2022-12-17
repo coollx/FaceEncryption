@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022/Arch Linux) (preloaded format=xelatex 2022.11.30)  17 DEC 2022 11:38
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022/Arch Linux) (preloaded format=xelatex 2022.11.30)  17 DEC 2022 16:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -655,18 +655,17 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [1]
 Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 98.
  (./Section1.tex) (./Section2.tex
-Overfull \hbox (1.40794pt too wide) in paragraph at lines 5--6
+Overfull \hbox (1.40794pt too wide) in paragraph at lines 7--8
 \TU/Cambria(0)/m/n/10.95 tribute annotations. The images in this dataset cover large pose variations and background clutter. CelebA
  []
 
 
-Overfull \hbox (4.1552pt too wide) in paragraph at lines 5--6
+Overfull \hbox (4.1552pt too wide) in paragraph at lines 7--8
 \TU/Cambria(0)/m/n/10.95 has large diversities, large quantities, and rich annotations, including \TU/Cambria(0)/b/n/10.95 5,000 celebrity identities\TU/Cambria(0)/m/n/10.95 , \TU/Cambria(0)/b/n/10.95 202,599
  []
 
 File: ./Figures//CelebA.png Graphic file (type bmp)
 <./Figures//CelebA.png>
-) (./Section3.tex
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -675,11 +674,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [2]
+Overfull \hbox (12.86482pt too wide) in paragraph at lines 34--36
+\TU/Cambria(0)/m/n/10.95 After downloading the CelebA dataset from the official website, we utilise CelebA-HQ-to-CelebA-mapping.txt
+ []
+
+) (./Section3.tex
 File: ./Figures//ResNet18.png Graphic file (type bmp)
 <./Figures//ResNet18.png>
-File: ./Figures//adversarial_attack.png Graphic file (type bmp)
-<./Figures//adversarial_attack.png>
-) (./Section4.tex
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -688,10 +690,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [3]
-Overfull \hbox (12.86482pt too wide) in paragraph at lines 13--15
-\TU/Cambria(0)/m/n/10.95 After downloading the CelebA dataset from the official website, we utilise CelebA-HQ-to-CelebA-mapping.txt
- []
-
+File: ./Figures//adversarial_attack.png Graphic file (type bmp)
+<./Figures//adversarial_attack.png>
 ) (./Section5.tex
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -739,13 +739,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [7] (./Report.aux)
 Package rerunfilecheck Info: File `Report.out' has not changed.
-(rerunfilecheck)             Checksum: 3D8834D5C1B86A2A2036FBF303C9B8E1;4086.
+(rerunfilecheck)             Checksum: CC97C3356B436DCCF403E376B214BD52;4293.
  ) 
 Here is how much of TeX's memory you used:
- 15744 strings out of 476156
- 303232 string characters out of 5814962
+ 15738 strings out of 476156
+ 303156 string characters out of 5814962
  671427 words of memory out of 5000000
- 36228 multiletter control sequences out of 15000+600000
+ 36225 multiletter control sequences out of 15000+600000
  473448 words of font info for 93 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  72i,11n,85p,747b,559s stack positions out of 5000i,500n,10000p,200000b,80000s
