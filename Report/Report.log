@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022/Arch Linux) (preloaded format=xelatex 2022.11.30)  17 DEC 2022 16:41
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022/Arch Linux) (preloaded format=xelatex 2022.11.30)  17 DEC 2022 19:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -655,17 +655,21 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [1]
 Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 98.
  (./Section1.tex) (./Section2.tex
-Overfull \hbox (1.40794pt too wide) in paragraph at lines 7--8
+Overfull \hbox (1.40794pt too wide) in paragraph at lines 5--6
 \TU/Cambria(0)/m/n/10.95 tribute annotations. The images in this dataset cover large pose variations and background clutter. CelebA
  []
 
 
-Overfull \hbox (4.1552pt too wide) in paragraph at lines 7--8
+Overfull \hbox (4.1552pt too wide) in paragraph at lines 5--6
 \TU/Cambria(0)/m/n/10.95 has large diversities, large quantities, and rich annotations, including \TU/Cambria(0)/b/n/10.95 5,000 celebrity identities\TU/Cambria(0)/m/n/10.95 , \TU/Cambria(0)/b/n/10.95 202,599
  []
 
+File: ./Figures//CelebA_stat.png Graphic file (type bmp)
+<./Figures//CelebA_stat.png>
 File: ./Figures//CelebA.png Graphic file (type bmp)
 <./Figures//CelebA.png>
+File: ./Figures//CelebA_usage.png Graphic file (type bmp)
+<./Figures//CelebA_usage.png>
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -673,14 +677,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[2]
-Overfull \hbox (12.86482pt too wide) in paragraph at lines 34--36
-\TU/Cambria(0)/m/n/10.95 After downloading the CelebA dataset from the official website, we utilise CelebA-HQ-to-CelebA-mapping.txt
- []
+[2]) (./Section3.tex
+Underfull \hbox (badness 10000) in paragraph at lines 25--26
 
-) (./Section3.tex
-File: ./Figures//ResNet18.png Graphic file (type bmp)
-<./Figures//ResNet18.png>
+ []
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -690,9 +690,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [3]
-File: ./Figures//adversarial_attack.png Graphic file (type bmp)
-<./Figures//adversarial_attack.png>
-) (./Section5.tex
+File: ./Figures//ResNet18.png Graphic file (type bmp)
+<./Figures//ResNet18.png>
+
+Underfull \hbox (badness 10000) in paragraph at lines 38--39
+
+ []
+
+File: ./Figures//face_recognition_demo.png Graphic file (type bmp)
+<./Figures//face_recognition_demo.png>
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -701,13 +707,27 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [4]
+File: ./Figures//Resnet18_performance.png Graphic file (type bmp)
+<./Figures//Resnet18_performance.png>
+File: ./Figures//adversarial_attack.png Graphic file (type bmp)
+<./Figures//adversarial_attack.png>
+
+Underfull \hbox (badness 10000) in paragraph at lines 78--79
+
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[5]
 File: ./Figures//pred_orig.png Graphic file (type bmp)
 <./Figures//pred_orig.png>
 File: ./Figures//pred_pgd_n.png Graphic file (type bmp)
 <./Figures//pred_pgd_n.png>
-) (./Section6.tex
-File: ./Figures//Resnet18_performance.png Graphic file (type bmp)
-<./Figures//Resnet18_performance.png>
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -716,7 +736,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[5]) (./Section7.tex
+[6]) (./Section6.tex) (./Section7.tex) (./Report.bbl
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -724,7 +744,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[6]) (./Report.bbl
+[7]
 Underfull \hbox (badness 1072) in paragraph at lines 68--82
 []\TU/Cambria(0)/m/n/10.95 Knagg, O.  (2019, Jan).  \TU/Cambria(0)/m/it/10.95 Know your enemy.  \TU/Cambria(0)/m/n/10.95 Towards Data Science.  Retrieved from [][]$[][][][][] [][][]
  []
@@ -737,17 +757,17 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[7] (./Report.aux)
+[8] (./Report.aux)
 Package rerunfilecheck Info: File `Report.out' has not changed.
-(rerunfilecheck)             Checksum: CC97C3356B436DCCF403E376B214BD52;4293.
+(rerunfilecheck)             Checksum: 353AACCB0F54B6B0F3B7F9B7BF819398;3399.
  ) 
 Here is how much of TeX's memory you used:
- 15738 strings out of 476156
- 303156 string characters out of 5814962
- 671427 words of memory out of 5000000
- 36225 multiletter control sequences out of 15000+600000
- 473448 words of font info for 93 fonts, out of 8000000 for 9000
+ 15760 strings out of 476156
+ 304004 string characters out of 5814962
+ 670427 words of memory out of 5000000
+ 36244 multiletter control sequences out of 15000+600000
+ 474820 words of font info for 99 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 72i,11n,85p,747b,559s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 72i,11n,85p,855b,559s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Report.pdf (8 pages).
+Output written on Report.pdf (9 pages).
