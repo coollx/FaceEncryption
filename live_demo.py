@@ -18,6 +18,7 @@ from PIL import Image
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu") # device object
 
+#non-targeted attack
 def pgd(model, X, y, epsilon, alpha, num_iter):
     delta = torch.rand_like(X, requires_grad=True)
     #set delta to be in the range of perturbation
@@ -34,6 +35,7 @@ def pgd(model, X, y, epsilon, alpha, num_iter):
         
     return delta.detach()
 
+#targeted attack
 def pgd_target(model, X, y_target, epsilon, alpha, num_iter):
 
     delta = torch.rand_like(X, requires_grad=True)
@@ -80,9 +82,10 @@ f = open('models/class_names_310.json' , 'r')
 classNames = json.load(f)
 f.close()
 
-
+#cpature the camera
 cap = cv.VideoCapture(1)
 
+#for each frame
 while True:
     success, frame = cap.read()
     if not success:
@@ -92,7 +95,7 @@ while True:
     x, y, c = frame.shape
     # Convert the BGR frame to RGB before processing.
     frame = cv.cvtColor(frame, cv.COLOR_BGR2RGB)
-    # Detect the hand landmarks. 
+    # Detect the faces 
     result = face_detection.process(frame)
     
     
@@ -135,6 +138,7 @@ while True:
             
             
             # pgd attack: non-targeted and targeted
+            # un-comment the one you want to use
             # delta = pgd(model, image, preds, 0.1, 0.05, 1)
             delta = pgd_target(model, image, torch.Tensor([64]).type(torch.LongTensor), 0.5, 0.1, 3)
             
@@ -143,7 +147,7 @@ while True:
             
             
             
-            
+            # get the prediction of the perturbed image
             img_pgd = image + delta
             outputs = model(img_pgd) # get the output
             _, pgd_preds = torch.max(outputs, 1) # get the predicted class
@@ -153,7 +157,7 @@ while True:
             pgd_className = classNames[pgd_preds.item()]
             
             
-            # Display the predicted gesture and the bounding box
+            # Display the predictions and the bounding box
             cv.rectangle(frame, (center_x-size, center_y-size-5), (center_x+size, center_y+size-5), (0, 255, 0), 2)
             cv.putText(frame, 'True: ' +  className + ' ' + str(likelihood)[:4], (center_x-size, center_y-size-10), cv.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
             cv.putText(frame, 'Encrypted: ' +  pgd_className + ' ' + str(pgd_likelihood)[:4], (center_x-size, center_y-size-35), cv.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2)

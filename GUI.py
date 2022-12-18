@@ -37,6 +37,7 @@ with open('models/class_names_310.json') as f:
     class_names = json.load(f)
 
 # %%
+#define application classs
 class App:
     def __init__(self, img, model, target=None):
         self.root = Tk()
@@ -51,22 +52,32 @@ class App:
         self.probability = model(transforms_test(self.ori_img).unsqueeze(0).to(device)).softmax(1).max(1).values.cpu().detach().numpy()
         self.slider_label = Label(self.root, text='Setp Size')
         self.slider_label2 = Label(self.root, text='Step Number')
-
+        
+        #module to show the prediction
         self.text_pred = Label(self.root, text='Predictions: \n' + str(self.predictions[0])+', \n Probability:\n '+str(self.probability[0]))
 
+        #show the image
         self.label = Label(self.root, image=self.image)
+
+        #button to start the attack, acutally it is not needed and not used
         self.button_pgd = Button(self.root, text="PGD_attack", command=self.pgd)
+
+        #slider to set the step size
         self.slider = Scale(self.root, from_=0.1, to=0.5, resolution=0.01,
                                 orient="horizontal", command=self.updateAlpha)
         
+        #slider to set the step number
         self.slider2 = Scale(self.root, from_=1, to=5, resolution=1,
                                 orient="horizontal", command=self.updateStepNum)
 
         self.target_choose = IntVar()
+
+        #radio button to choose the attack type
         self.radio_notarget = Radiobutton(self.root, text="No Attack", variable=self.target_choose, value=0, command=self.reset)
         self.radio_target = Radiobutton(self.root, text="Target Attack", variable=self.target_choose, value=1, command=self.pgd_target)
         self.radio_non_target = Radiobutton(self.root, text="Non-Target Attack", variable=self.target_choose, value=2, command=self.pgd)
 
+        #set location of the widgets
         #self.slider.set(0.1)
         self.slider_label.grid(row=1, column=0)
         self.slider.grid(row=1, column=1)
@@ -82,6 +93,7 @@ class App:
 
         self.root.mainloop()
 
+    #conduct pgd attack
     def pgd(self):
         model = self.model
         model.eval()
@@ -118,6 +130,7 @@ class App:
         self.text_pred.configure(text='Predictions: \n' + str(self.predictions[0])+',\n Probability: \n'+str(self.probability[0]))
 
 
+    #conduct partget attack
     def pgd_target(self):
 
         model = self.model
@@ -126,8 +139,6 @@ class App:
         y_target = torch.tensor([self.target]).to(device)
         epsilon, alpha, num_iter = self.alpha, self.alpha, self.step_num
 
-        #get fake labels as second highest probability
-        #y_fake = torch.argsort(model(X), dim=1)[:, -2]
         delta = torch.rand_like(X, requires_grad=True)
         #set delta to be in the range of perturbation
         delta.data = delta.data * 2 * epsilon - epsilon
@@ -154,7 +165,8 @@ class App:
         self.probability = model(transforms_test(new_img).unsqueeze(0).to(device)).softmax(1).max(1).values.cpu().detach().numpy()
         self.text_pred.configure(text='Predictions: \n' + str(self.predictions[0])+',\n Probability: \n'+str(self.probability[0]))
 
-         
+
+    #corresponding function for slider to update step size of attack
     def updateAlpha(self, event):
 
         if self.target_choose.get() != 0:
@@ -165,6 +177,7 @@ class App:
             else:
                 self.pgd()
 
+    #reset application to original image and initial state
     def reset(self):
         self.image = ImageTk.PhotoImage(self.ori_img)
         self.label.configure(image=self.image)
@@ -172,6 +185,7 @@ class App:
         self.probability = self.model(transforms_test(self.ori_img).unsqueeze(0).to(device)).softmax(1).max(1).values.cpu().detach().numpy()
         self.text_pred.configure(text='Predictions: \n' + str(self.predictions[0])+',\n Probability: \n'+str(self.probability[0]))
 
+    #corresponding function for slider to update step number for slider
     def updateStepNum(self, event):
         if self.target_choose.get() != 0:
             self.step_num = self.slider2.get()
