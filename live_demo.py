@@ -119,27 +119,36 @@ while True:
             if image.shape[0] == 0 or image.shape[1] == 0:
                 continue
             
-            #print(type(image))
-            
             # crop the face and classify it
             image = Image.fromarray(image)
             image = transforms_test(image)
             image = image.unsqueeze(0)
-            
-            # plt.imshow(image[0].permute(1,2,0))
-            # plt.show()
-
             image = image.to(device)
             model.eval()
             outputs = model(image)
             _, preds = torch.max(outputs, 1)
+            likelihood = outputs.softmax(1).max(1)[0].item()
             
-            # pgd attack
+            
+            
+            
+            
+            
+            
+            # pgd attack: non-targeted and targeted
             delta = pgd(model, image, preds, 0.1, 0.05, 1)
             #delta = pgd_target(model, image, torch.Tensor([64]).type(torch.LongTensor), 0.5, 0.1, 3)
+            
+            
+            
+            
+            
+            
+            
             img_pgd = image + delta
             outputs = model(img_pgd)
             _, pgd_preds = torch.max(outputs, 1)
+            pgd_likelihood = outputs.softmax(1).max(1)[0].item()
             
             className = classNames[preds.item()]
             pgd_className = classNames[pgd_preds.item()]
@@ -147,8 +156,8 @@ while True:
             
             # Display the predicted gesture and the bounding box
             cv.rectangle(frame, (center_x-size, center_y-size-5), (center_x+size, center_y+size-5), (0, 255, 0), 2)
-            cv.putText(frame, className, (center_x-size, center_y-size-10), cv.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
-            cv.putText(frame, pgd_className, (center_x-size, center_y-size-35), cv.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2)
+            cv.putText(frame, 'True: ' +  className + ' ' + str(likelihood)[:4], (center_x-size, center_y-size-10), cv.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+            cv.putText(frame, 'Encrypted: ' +  pgd_className + ' ' + str(pgd_likelihood)[:4], (center_x-size, center_y-size-35), cv.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2)
             
             # #replace the face with the encrypted face
             img_pgd = img_pgd[0].permute(1,2,0).numpy()
@@ -162,7 +171,7 @@ while True:
             # resize the encrypted face to the original size
             img_pgd = cv.resize(img_pgd, (face_shape[1], face_shape[0]))
 
-            #print(frame[center_y-size-5:center_y+size-5, center_x-size:center_x+size].shape, img_pgd.shape)
+
             frame[center_y-size-5:center_y+size-5, center_x-size:center_x+size] = img_pgd
     else:
         cv.putText(frame, 'No face detected', (10, 30), cv.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
