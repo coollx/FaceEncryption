@@ -1,6 +1,6 @@
 \section{Methodology}
 
-This section will present the primary methodologies we used in our work. First, a data transformation method will be applied to the training data. After the preprocessing, we used ResNet-18 as the backbone model for the facial recognition program, and adversarial attack methods will then be applied to this model to generate perturbations. 
+This section will present the primary methodologies we used in our work. First, a data transformation method will be applied to the training data. After the pre-processing, we used ResNet-18 as the backbone model for the facial recognition program, and adversarial attack methods will then be applied to this model to generate perturbations. 
 
 \subsection{Data Transformation}
 
@@ -37,10 +37,10 @@ Another benefit of ResNet-18 is that it is relatively lightweight, making it sui
 
 Before generating perturbation images from users’ photos, we need to build a facial recognition system to serve as the attacking target. Before we feed the facial images into ResNet, a critical step is to crop and extract the facial area from the input picture. To achieve this goal, we used MediaPipe to obtain the corner coordinates of the facial area.\\
 
-Next, the cropped face area is fed to a ResNet-18 model. We applied transfer learning techniques to speed up the training process - we obtained the initial weight of the neural network from a pretraining task conducted on ImageNet. Then, we fine-tuned the ResNet model on our training set. Experimental results show that the fine-tuned model can effectively identify the facial identities in the test set. 
+Next, the cropped face area is fed to a ResNet-18 model. We applied transfer learning techniques to speed up the training process - we obtained the initial weight of the neural network from a pre-training task conducted on ImageNet. Then, we fine-tuned the ResNet model on our training set. Experimental results show that the fine-tuned model can effectively identify the facial identities in the test set. 
 
 
-Here is an demonstration of our face recognition system.
+Here is a demonstration of our face-recognition system.
 
 \begin{figure}[h]
     \centering
@@ -58,7 +58,7 @@ Here is an demonstration of our face recognition system.
     \label{fig:resnet18_performance}
 \end{figure}
 
-Figure \ref{fig:resnet18_performance} demonstrates that with 25 epochs, the face recognition model Resnet-18 achieves 99.98\% accuracy on the training set and 81.93\% accuracy on the test set. We halted training at this point because any additional epoch would result in an overtraining problem.
+Figure \ref{fig:resnet18_performance} demonstrates that with 25 epochs, the face recognition model Resnet-18 achieves 99.98\% accuracy on the training set and 81.93\% accuracy on the test set. We halted training at this point because any additional epoch would result in an overfitting problem.
 
 \subsection{Adversarial Attacks}
 
@@ -75,61 +75,41 @@ Adversarial attacking is a technique that can be used to fool machine learning m
 
 \subsubsection{PGD Attack}
 
-The PGD attack is a white-box attack which means the attacker has access to the model gradients i.e \cite{madry2017towards}. it knows every weight in ResNet-18 in our project. This model gives the attacker much more power than black box attacks as they can specifically craft their attack to fool the face recognition model without having to rely on transfer attacks that often result in human-visible perturbations. PGD can be considered the most “complete” white-box adversary as it lifts any constraints on the amount of time and effort the attacker can put into finding the best attack. \cite{knagg_2019}. \\
+The PGD attack is a white-box adversarial attack which means the attacker knows everything about the model, including gradients, model parameters and even the raining data and training procedure \cite{madry2017towards}. \\
 
 In this project, we use the gradient of the loss function to generate adversarial examples. The attack is iterative and uses a step size to determine the size of the perturbation. The attack is also constrained by a maximum perturbation size.
 
-\subsubsection{Non-targeted Attack}
+\subsubsection{Non-Targeted Attack}
 
-In a non-targeted attack, the goal is to generate an adversarial example that is misclassified by the target model $A$. Which means we are \textbf{maximizing} the loss function with respect to the target class $A$. The attack is as follows:
+In a non-targeted attack, the goal is to generate an adversarial example that is misclassified by the target model $A$. Which means we are \textbf{maximizing} the loss function with respect to the target class $A$. The attack is as follows:\\
 
-\begin{enumerate}
-    \item Generate a random noise tensor $\delta$ with the same shape as the input image.
-    \item Calculate the gradient of the loss function with respect to the noise tensor $\delta$.
-    \item Add the gradient to the noise tensor $\delta$.
-    \item Clip the noise tensor $\delta$ to the range $[-\epsilon, \epsilon]$.
-    \item Add the noise tensor $\delta$ to the input image.
-    \item Repeat steps 2 to 5 until the model misclassifies the image.
-\end{enumerate}
+\begin{itemize}
+    \item Input: \verb|face image|,\quad \verb|true label|,\quad \verb|face recognition model|
+    \item Initialize: $\delta$ = random noise
+    \item For each iteration: Modify the $\delta$ with step size according to gradient such that:\begin{center}
+        \verb|Difference(Model(Face Image + Delta), True Label)| is maximum
+    \end{center}
 
-The loss function (maximizing the difference with the true label) can be represented as:
-
-\begin{center}
-    \verb|Difference(Model(Face Image + Delta), True Label)|
-\end{center}
+    \item Return $\delta$\\
+\end{itemize}
 
 where \verb|Model(Face Image + Delta)| is the prediction of perturbed data.
 
-
-\begin{figure}[htbp]
-    \centering
-    \begin{subfigure}{0.4\textwidth}
-        \centering
-        \includegraphics[width=1\textwidth]{pred_orig.png}
-        \caption{Prediction without attack}
-    \end{subfigure}
-    \qquad
-    \begin{subfigure}{0.4\textwidth}
-        \centering
-        \includegraphics[width=1\textwidth]{pred_pgd_n.png}
-        \caption{Prediction with non-targeted attack}
-    \end{subfigure}
-    \caption{Example of a non-targeted attack}
-    \label{fig:pdf_attack_example}
-\end{figure}
-
-With above steps, we can generate an adversarial example that is misclassified by the target model. In figure \ref{fig:pdf_attack_example}, the image on the left demonstrates that Resnet-18 correctly predicted the original photos. After adding the PGD model's generated noise. The image on the right depicts Resnet-18 classifying the adversarial example as a different category.
-
 \subsubsection{Targeted Attack}
 
-In a targeted attack, the goal is to generate an adversarial example that is misclassified $A$ by the target model and classified as a specific class $B$. All the steps are the same as in a non-targeted attack, except for the last step should be: \textbf{Repeat steps 2 to 5 until the model classifies it as the target class.} Which means we are \textbf{minimizing} the loss function with respect to the target class $B$.
+In a targeted attack, the goal is to generate an adversarial example that is misclassified $A$ by the target model and classified as a specific class $B$. Which means we are \textbf{minimizing} the loss function with respect to the target class $B$. The attack is as follows:\\
 
-The loss function (minimizing the difference with the target label) can be represented as:
+\begin{itemize}
+    \item Input: \verb|face image|,\quad \verb|target label|,\quad \verb|face recognition model|
+    \item Initialize: $\delta$ = random noise
+    \item For each iteration: Modify the $\delta$ with step size according to gradient such that:\begin{center}
+        \verb|Difference(Model(Face Image + Delta), Target Label)| is minimum
+    \end{center}
 
-\begin{center}
-    \verb|Difference(Model(Face Image + Delta), Target Label)|
-\end{center}
+    \item Return $\delta$\\
+\end{itemize}
 
+where \verb|Model(Face Image + Delta)| is the prediction of perturbed data.
 
 \subsubsection{Real-Time Application}
 

@@ -1,0 +1,15 @@
+\section{Conclusion and Ethical Considerations}
+
+In this work, we show how adversarial attacks can safeguard the privacy of facial image sharing without harming image quality. The trained facial recognition system can no longer correctly identify the user's face by applying perturbations to the input images. \\
+
+This is an important consideration when sharing photos online, as there are often concerns regarding personal privacy and the possibility of malicious actors gaining access to sensitive information. \\
+
+The malicious application of the targeted-attack algorithm is at the heart of the project's ethical concerns. In particular, the model has been criticized since it might be used to reassign a person's images to a different identity, which could have dire ramifications for the wronged person. The person mistakenly identified may suffer damage to their reputation, finances, or both due to this malicious use. It is crucial to take precautions to prevent this kind of abuse and to have enough safeguards to protect the privacy and security of persons whose identities may be utilized to train the model.
+
+
+\section{Future Work}
+
+There are multiple possible future directions for this project's development. One option is to explore using more realistic attack scenarios, such as black box attacks. In our work, the adversarial attacking process still uses the target network gradient computed in the forward pass; in real-day scenarios, the gradient functions are typically invisible to users. Boundary Attack is one potential candidate for black box attacks. However the major problem with Boundary Attack is it requires querying the target model many times until the perturbation noise is fully generated. During the implementation of this report, we came up with another adversarial attack framework based on contrastive learning without querying the target model. We will continue to work on this topic and report our progress. \\
+
+Developing a server-client application that processes photos on a server rather than on the user's device is another avenue for future research. This could mitigate some of the ethical concerns associated with the malicious use of the targeted-attack application, as it would permit greater control and oversight over the model's application. Another advantage of using server-client architecture is that the client does not have to handle any computational-heavy tasks or large-scale data processing like encrypting high-resolution images, allowing it to run smoothly on a variety of devices with limited resources.
+
