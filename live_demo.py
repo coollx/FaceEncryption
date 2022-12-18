@@ -19,7 +19,6 @@ from PIL import Image
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu") # device object
 
 def pgd(model, X, y, epsilon, alpha, num_iter):
-
     delta = torch.rand_like(X, requires_grad=True)
     #set delta to be in the range of perturbation
     delta.data = delta.data * 2 * epsilon - epsilon
@@ -105,29 +104,29 @@ while True:
             #get the bounding box
             bbox = detection.location_data.relative_bounding_box
             #get the center of the bounding box
-            center_x = bbox.xmin + bbox.width / 2
-            center_y = bbox.ymin + bbox.height / 2 
+            center_x = bbox.xmin + bbox.width / 2 # x coordinate of the center
+            center_y = bbox.ymin + bbox.height / 2  # y coordinate of the center
 
-            center_x = int(center_x * frame.shape[1])
-            center_y = int(center_y * frame.shape[0])
+            center_x = int(center_x * frame.shape[1]) # convert to pixel
+            center_y = int(center_y * frame.shape[0]) # convert to pixel
 
-            size = int(max(bbox.width * frame.shape[1], bbox.height * frame.shape[0])*1)
-            size = int(size/2) + 10
-            image = frame[center_y-size-5:center_y+size-5, center_x-size:center_x+size]
-            face_shape = image.shape
+            size = int(max(bbox.width * frame.shape[1], bbox.height * frame.shape[0])*1) # convert to pixel
+            size = int(size/2) + 10 # add some padding
+            image = frame[center_y-size-5:center_y+size-5, center_x-size:center_x+size] # crop the face
+            face_shape = image.shape 
         
             if image.shape[0] == 0 or image.shape[1] == 0:
                 continue
             
             # crop the face and classify it
             image = Image.fromarray(image)
-            image = transforms_test(image)
-            image = image.unsqueeze(0)
-            image = image.to(device)
-            model.eval()
-            outputs = model(image)
-            _, preds = torch.max(outputs, 1)
-            likelihood = outputs.softmax(1).max(1)[0].item()
+            image = transforms_test(image) # convert to tensor
+            image = image.unsqueeze(0) # add a batch dimension
+            image = image.to(device) # send to device
+            model.eval() # set model to evaluation mode
+            outputs = model(image) # get the output
+            _, preds = torch.max(outputs, 1) # get the predicted class
+            likelihood = outputs.softmax(1).max(1)[0].item() # get the likelihood of the prediction
             
             
             
@@ -136,8 +135,8 @@ while True:
             
             
             # pgd attack: non-targeted and targeted
-            delta = pgd(model, image, preds, 0.1, 0.05, 1)
-            #delta = pgd_target(model, image, torch.Tensor([64]).type(torch.LongTensor), 0.5, 0.1, 3)
+            # delta = pgd(model, image, preds, 0.1, 0.05, 1)
+            delta = pgd_target(model, image, torch.Tensor([64]).type(torch.LongTensor), 0.5, 0.1, 3)
             
             
             
@@ -146,9 +145,9 @@ while True:
             
             
             img_pgd = image + delta
-            outputs = model(img_pgd)
-            _, pgd_preds = torch.max(outputs, 1)
-            pgd_likelihood = outputs.softmax(1).max(1)[0].item()
+            outputs = model(img_pgd) # get the output
+            _, pgd_preds = torch.max(outputs, 1) # get the predicted class
+            pgd_likelihood = outputs.softmax(1).max(1)[0].item() # get the likelihood of the prediction
             
             className = classNames[preds.item()]
             pgd_className = classNames[pgd_preds.item()]
@@ -169,12 +168,12 @@ while True:
             img_pgd = np.clip(img_pgd, 0, 255)
             img_pgd = img_pgd.astype(np.uint8)
             # resize the encrypted face to the original size
-            img_pgd = cv.resize(img_pgd, (face_shape[1], face_shape[0]))
+            img_pgd = cv.resize(img_pgd, (face_shape[1], face_shape[0])) 
 
 
-            frame[center_y-size-5:center_y+size-5, center_x-size:center_x+size] = img_pgd
+            frame[center_y-size-5:center_y+size-5, center_x-size:center_x+size] = img_pgd # replace the face with the encrypted face
     else:
-        cv.putText(frame, 'No face detected', (10, 30), cv.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+        cv.putText(frame, 'No face detected', (10, 30), cv.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2) # Display the predicted gesture and the bounding box
     
     frame = cv.cvtColor(frame, cv.COLOR_RGB2BGR)
     cv.imshow("Face Encryption Demo", frame)
